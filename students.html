@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Students | Namo Narayan Shukla Tuition Classes</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div class="app">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-mark">N</div>
+                <div class="brand-name"><strong>Namo Narayan Shukla</strong><span>Tuition Classes</span></div>
+            </div>
+            <nav class="side-nav">
+                <a href="dashboard.html"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg>Dashboard</a>
+                <a href="students.html" class="active"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.6 3.3-5.5 6.5-5.5s5.9 1.9 6.5 5.5M16 4.8a3.5 3.5 0 010 6.4M18 14.8c2 .6 3.3 2.4 3.6 5"/></svg>Students</a>
+                <a href="income.html"><svg viewBox="0 0 24 24"><path d="M7 5h10M7 9h10M7 5c5 0 7 1.5 7 4s-2 4-7 4l8 7"/></svg>Income &amp; Payments</a>
+            </nav>
+            <div class="side-footer">
+                <p class="side-tagline">Learn • Practice • Excel</p>
+                <button id="logoutButton" class="logout-button" type="button">Logout</button>
+            </div>
+        </aside>
+        <div class="content">
+    <main class="container">
+
+        <div class="month-timer" id="monthTimer" role="timer">
+            <span class="timer-icon" aria-hidden="true">&#9203;</span>
+            <span id="timerLabel">Fees reset in</span>
+            <strong id="timerValue">--</strong>
+        </div>
+
+        <section class="welcome-section">
+            <p class="eyebrow">STUDENT MANAGEMENT</p>
+            <h1>Students</h1>
+            <p>Add students, assign batches and record monthly fees.</p>
+        </section>
+
+        <!-- SUMMARY (built by students.js from the batches table) -->
+        <section class="stats-grid" id="statsGrid"></section>
+
+        <!-- ADD / EDIT STUDENT -->
+        <section class="panel">
+
+            <div class="section-heading">
+                <div>
+                    <h2 id="formTitle">Add New Student</h2>
+                    <p>Enter the student's details below.</p>
+                </div>
+            </div>
+
+            <form id="studentForm" class="student-form">
+
+                <input type="hidden" id="editStudentId">
+
+                <div>
+                    <label for="studentName">Student Name</label>
+                    <input type="text" id="studentName" placeholder="Enter student name" required>
+                </div>
+
+                <div>
+                    <label for="studentClass">Class</label>
+                    <select id="studentClass" required>
+                        <option value="">Select class</option>
+                        <option value="1">Class 1</option>
+                        <option value="2">Class 2</option>
+                        <option value="3">Class 3</option>
+                        <option value="4">Class 4</option>
+                        <option value="5">Class 5</option>
+                        <option value="6">Class 6</option>
+                        <option value="7">Class 7</option>
+                        <option value="8">Class 8</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="studentPhone">Phone Number (optional)</label>
+                    <input
+                        type="tel"
+                        id="studentPhone"
+                        placeholder="10-digit phone number"
+                        inputmode="numeric"
+                        maxlength="10"
+                        pattern="[0-9]{10}"
+                        title="Enter a 10-digit phone number"
+                    >
+                </div>
+
+                <div>
+                    <label for="studentBatch">Batch</label>
+                    <select id="studentBatch" required>
+                        <option value="">Loading batches...</option>
+                    </select>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="saveStudentButton">Add Student</button>
+
+                    <button type="button" id="cancelEditButton" class="action-button" hidden>
+                        Cancel Editing
+                    </button>
+                </div>
+
+            </form>
+
+            <p id="studentMessage" class="message" role="status" aria-live="polite"></p>
+
+        </section>
+
+        <!-- ALL STUDENTS -->
+        <section class="panel">
+
+            <div class="section-heading">
+                <div>
+                    <h2>All Students</h2>
+                    <p>Students are grouped by batch.</p>
+                </div>
+
+                <input
+                    type="search"
+                    id="searchStudent"
+                    class="search-input"
+                    placeholder="Search by name or phone..."
+                >
+            </div>
+
+            <div id="batchContainer">
+                <p class="empty-note">Loading students...</p>
+            </div>
+
+        </section>
+
+    </main>
+        </div>
+    </div>
+
+    <script type="module" src="js/students.js"></script>
+
+</body>
+</html>

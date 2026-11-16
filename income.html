@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Income &amp; Payments | Namo Narayan Shukla Tuition Classes</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="app">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-mark">N</div>
+                <div class="brand-name"><strong>Namo Narayan Shukla</strong><span>Tuition Classes</span></div>
+            </div>
+            <nav class="side-nav">
+                <a href="dashboard.html"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg>Dashboard</a>
+                <a href="students.html"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.6 3.3-5.5 6.5-5.5s5.9 1.9 6.5 5.5M16 4.8a3.5 3.5 0 010 6.4M18 14.8c2 .6 3.3 2.4 3.6 5"/></svg>Students</a>
+                <a href="income.html" class="active"><svg viewBox="0 0 24 24"><path d="M7 5h10M7 9h10M7 5c5 0 7 1.5 7 4s-2 4-7 4l8 7"/></svg>Income &amp; Payments</a>
+            </nav>
+            <div class="side-footer">
+                <p class="side-tagline">Learn • Practice • Excel</p>
+                <button id="logoutButton" class="logout-button" type="button">Logout</button>
+            </div>
+        </aside>
+        <div class="content">
+    <main class="container">
+
+        <div class="month-timer" id="monthTimer" role="timer">
+            <span class="timer-icon" aria-hidden="true">&#9203;</span>
+            <span id="timerLabel">Fees reset in</span>
+            <strong id="timerValue">--</strong>
+        </div>
+
+        <section class="welcome-section">
+            <p class="eyebrow">FINANCIAL OVERVIEW</p>
+            <h1>Income &amp; Payments</h1>
+            <p>Track fee collections and payment history. Mark payments on the Students page.</p>
+        </section>
+
+        <section class="stats-grid">
+
+            <div class="stat-card s-money">
+                <p>Total Income</p>
+                <h2 id="totalIncome">₹0</h2>
+                <span>From active students</span>
+            </div>
+
+            <div class="stat-card s-calendar">
+                <p>This Month</p>
+                <h2 id="monthlyIncome">₹0</h2>
+                <span>Collected this month</span>
+            </div>
+
+            <div class="stat-card s-done">
+                <p>Paid Students</p>
+                <h2 id="paidStudents">0</h2>
+                <span>This month</span>
+            </div>
+
+            <div class="stat-card s-wait">
+                <p>Unpaid Students</p>
+                <h2 id="unpaidStudents">0</h2>
+                <span>This month</span>
+            </div>
+
+        </section>
+
+        <section class="panel">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Payment Overview</h2>
+                    <p>Paid and unpaid status of active students this month.</p>
+                </div>
+                <a href="students.html" class="text-link">Go to Students →</a>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>Class</th>
+                            <th>Batch</th>
+                            <th>Monthly Fee</th>
+                            <th>Month</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="paymentOverview">
+                        <tr>
+                            <td colspan="6">Loading payment information...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <section class="panel">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Payment History</h2>
+                    <p>All recorded payments, newest first.</p>
+                </div>
+
+                <div class="heading-actions">
+                    <input
+                        type="search"
+                        id="searchPayment"
+                        class="search-input"
+                        placeholder="Search student..."
+                    >
+                    <button type="button" id="clearHistoryButton" class="danger-outline">Clear History</button>
+                </div>
+            </div>
+
+            <div class="clear-panel" id="clearPanel" hidden>
+                <p><strong>This permanently deletes payment records and cannot be undone.</strong></p>
+                <label class="clear-check">
+                    <input type="checkbox" id="keepThisMonth" checked>
+                    Keep this month's payments (recommended)
+                </label>
+                <div class="clear-row">
+                    <input type="text" id="clearConfirmInput" placeholder="Type CLEAR to confirm" autocomplete="off">
+                    <button type="button" id="clearConfirmButton" class="danger-solid" disabled>Clear history</button>
+                    <button type="button" id="clearCancelButton" class="action-button">Cancel</button>
+                </div>
+            </div>
+
+            <p id="incomeMessage" class="message" role="status" aria-live="polite"></p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student Name</th>
+                            <th>Class</th>
+                            <th>Fee Month</th>
+                            <th>Payment Date</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="paymentHistory">
+                        <tr>
+                            <td colspan="6">Loading payment history...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <section class="panel">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Income Records</h2>
+                    <p>How totals are counted.</p>
+                </div>
+            </div>
+
+            <p>
+                Payments from deactivated students are excluded from income
+                totals. Their historical transactions remain stored and are
+                marked as inactive in the history.
+            </p>
+
+        </section>
+
+    </main>
+        </div>
+    </div>
+
+    <script type="module" src="js/income.js"></script>
+
+</body>
+</html>

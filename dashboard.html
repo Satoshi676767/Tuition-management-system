@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | Namo Narayan Shukla Tuition Classes</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div class="app">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-mark">N</div>
+                <div class="brand-name"><strong>Namo Narayan Shukla</strong><span>Tuition Classes</span></div>
+            </div>
+            <nav class="side-nav">
+                <a href="dashboard.html" class="active"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg>Dashboard</a>
+                <a href="students.html"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.6 3.3-5.5 6.5-5.5s5.9 1.9 6.5 5.5M16 4.8a3.5 3.5 0 010 6.4M18 14.8c2 .6 3.3 2.4 3.6 5"/></svg>Students</a>
+                <a href="income.html"><svg viewBox="0 0 24 24"><path d="M7 5h10M7 9h10M7 5c5 0 7 1.5 7 4s-2 4-7 4l8 7"/></svg>Income &amp; Payments</a>
+            </nav>
+            <div class="side-footer">
+                <p class="side-tagline">Learn • Practice • Excel</p>
+                <button id="logoutButton" class="logout-button" type="button">Logout</button>
+            </div>
+        </aside>
+        <div class="content">
+    <main class="container">
+
+        <div class="month-timer" id="monthTimer" role="timer">
+            <span class="timer-icon" aria-hidden="true">&#9203;</span>
+            <span id="timerLabel">Fees reset in</span>
+            <strong id="timerValue">--</strong>
+        </div>
+
+        <!-- TUITION BANNER -->
+        <section class="hero">
+
+            <div class="hero-text">
+                <h1>
+                    Namo Narayan Shukla
+                    <span>Tuition Classes</span>
+                </h1>
+
+                <p class="hero-tagline">
+                    Build strong basics. Improve performance. Achieve your goals.
+                </p>
+
+                <span class="hero-chip">Classes 1st to 8th</span>
+            </div>
+
+            <div class="hero-art" aria-hidden="true">
+
+                <!--
+                    YOUR OWN PHOTO (optional):
+                    Save a banner/classroom photo as images/tuition-banner.jpg
+                    and it will appear here automatically. If the file is
+                    missing, the drawing below is shown instead.
+                -->
+                <img
+                    class="hero-photo"
+                    src="images/tuition-banner.jpg"
+                    alt=""
+                    onerror="this.remove()"
+                >
+
+                <svg viewBox="0 0 360 260" class="hero-svg" xmlns="http://www.w3.org/2000/svg">
+                    <!-- books -->
+                    <rect x="70"  y="190" width="220" height="30" rx="5" fill="#2f5fb3"/>
+                    <rect x="70"  y="212" width="220" height="8"  fill="#f8fafc"/>
+                    <rect x="88"  y="158" width="200" height="30" rx="5" fill="#f2b632"/>
+                    <rect x="88"  y="180" width="200" height="8"  fill="#f8fafc"/>
+                    <rect x="62"  y="126" width="210" height="30" rx="5" fill="#d9e2f1"/>
+                    <rect x="62"  y="148" width="210" height="8"  fill="#ffffff"/>
+                    <!-- graduation cap -->
+                    <polygon points="165,50 262,84 165,118 68,84" fill="#111827"/>
+                    <path d="M118 102 v26 c0 12 94 12 94 0 v-26 l-47 17 z" fill="#1f2a44"/>
+                    <line x1="262" y1="84" x2="262" y2="126" stroke="#f2b632" stroke-width="4"/>
+                    <circle cx="262" cy="130" r="7" fill="#f2b632"/>
+                    <!-- pencils -->
+                    <rect x="300" y="110" width="12" height="80" rx="3" fill="#f2b632" transform="rotate(10 306 150)"/>
+                    <rect x="318" y="118" width="12" height="72" rx="3" fill="#6ea8ff" transform="rotate(14 324 154)"/>
+                </svg>
+            </div>
+
+        </section>
+
+        <!-- STATISTICS -->
+        <section class="stats-grid">
+
+            <div class="stat-card s-students">
+                <p>Active Students</p>
+                <h2 id="studentCount">0</h2>
+                <span>Currently enrolled</span>
+            </div>
+
+            <div class="stat-card s-money">
+                <p>Expected Fees</p>
+                <h2 id="expectedFees">₹0</h2>
+                <span>Monthly expected collection</span>
+            </div>
+
+            <div class="stat-card s-done">
+                <p>Collected This Month</p>
+                <h2 id="collectedFees">₹0</h2>
+                <span>Received from active students</span>
+            </div>
+
+            <div class="stat-card s-wait">
+                <p>Pending Fees</p>
+                <h2 id="pendingFees">₹0</h2>
+                <span>Outstanding payments</span>
+            </div>
+
+        </section>
+
+        <!-- ABOUT + UPCOMING PAYMENTS -->
+        <section class="dashboard-grid">
+
+            <div class="panel about-panel">
+                <h2>About our classes</h2>
+                <p class="about-lead">
+                    Small batches, steady practice and personal attention for every child.
+                </p>
+                <p class="about-copy">
+                    Classes run in three batches every day for students of
+                    Class 1 to Class 8, focused on strong basics, regular
+                    practice and better results at school.
+                </p>
+                <a href="students.html" class="primary-link">Manage students</a>
+            </div>
+
+            <div class="panel">
+                <div class="section-heading">
+                    <div>
+                        <h2>Unpaid This Month</h2>
+                        <p>Students who have not paid yet. Resets every month.</p>
+                    </div>
+                </div>
+
+                <ul id="upcomingList" class="upcoming-list">
+                    <li class="upcoming-empty">Loading...</li>
+                </ul>
+
+                <div class="panel-footer">
+                    <a href="students.html" class="text-link">View all students →</a>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+        </div>
+    </div>
+
+    <script type="module" src="js/dashboard.js"></script>
+
+</body>
+</html>
